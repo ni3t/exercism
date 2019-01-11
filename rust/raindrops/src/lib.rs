@@ -1,17 +1,23 @@
 pub fn raindrops(n: u32) -> String {
-  let result: String = [3, 5, 7]
-    .into_iter()
-    .map(|i| {
-      if n % *i == 0 {
-        "Plxng".to_string()
-      } else {
-        "".to_string()
-      }
-    })
-    .collect();
-  if result.to_string() == "".to_string() {
-    return n.to_string();
+  let mut string = String::from("");
+
+  let mut any = false;
+  if n % 3 == 0 {
+    string.push_str("Pling");
+    any = true;
+  }
+  if n % 5 == 0 {
+    string.push_str("Plang");
+    any = true;
+  }
+  if n % 7 == 0 {
+    string.push_str("Plong");
+    any = true;
+  }
+
+  if any {
+    return string;
   } else {
-    return result.to_string();
+    return n.to_string();
   }
 }
